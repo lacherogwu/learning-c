@@ -2,7 +2,7 @@ import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 
 const readStream = fs.createReadStream('bigfile.txt');
-const process = spawn('node', ['./number_formatter.mjs', 'out.txt', '$']);
+const process = spawn('./number_formatter', ['out.txt', '$']);
 readStream.pipe(process.stdin);
 
 process.stdout.on('data', data => {
